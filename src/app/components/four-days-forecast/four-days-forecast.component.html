@@ -1,1 +1,4 @@
 <p>four-days-forecast works!</p>
+<div *ngIf="weatherData$ | async as weatherData">
+  <pre>{{ weatherData }}</pre>
+</div>

@@ -1,2 +1,9 @@
 <p>current-day-forecast works!</p>
 <button (click)="getLocation()">GET MY LOCATION</button>
+>
+<div>{{ location.latitude }}</div>
+<div>{{ location.longitude }}</div>
+
+<ng-template #loading>
+  <div>Loading current position...</div>
+</ng-template>
