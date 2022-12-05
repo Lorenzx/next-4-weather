@@ -10,19 +10,19 @@ export class CurrentLocationService {
   constructor() {}
 
   getCurrentLocation(): Observable<Coords> {
+    let isLoading = true;
     return new Observable((observer) => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log('loading...');
           observer.next({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           });
-
           observer.complete();
+          isLoading = false;
         },
         (err) => console.log(err)
-      );
+      )
     });
   }
 }

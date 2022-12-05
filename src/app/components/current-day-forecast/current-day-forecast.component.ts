@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { observable, Observable } from 'rxjs';
 import { Coords } from 'src/app/interfaces/coords.i';
@@ -9,9 +10,10 @@ import { CurrentLocationService } from 'src/app/services/current-location.servic
   styleUrls: ['./current-day-forecast.component.scss'],
 })
 export class CurrentDayForecastComponent implements OnInit {
-  public location: Coords = { latitude: 0, longitude: 0 };
+  location: Coords = { latitude: 0, longitude: 0 };
 
-  constructor(private currentLocationService: CurrentLocationService) {}
+
+  constructor(private currentLocationService: CurrentLocationService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.getLocation();
@@ -22,4 +24,5 @@ export class CurrentDayForecastComponent implements OnInit {
       .getCurrentLocation()
       .subscribe((data) => (this.location = data));
   }
+
 }

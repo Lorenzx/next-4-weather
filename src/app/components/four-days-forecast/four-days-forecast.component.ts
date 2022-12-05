@@ -9,12 +9,14 @@ import { environment } from '../../../../environment';
   styleUrls: ['./four-days-forecast.component.scss'],
 })
 export class FourDaysForecastComponent {
-  latitude: number = 0;
-  longitude: number = 0;
-
+  latitude: number = 45.7998336;
+  longitude: number = 9.09312;
+  
   constructor(private http: HttpClient) {}
 
-  weatherData$ = this.http.get(
-    `api.openweathermap.org/data/2.5/forecast?lat=${this.latitude}&lon=${this.longitude}&appid=${environment.apiKey}`
+  weatherData$: any = this.http.get(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${this.latitude}&lon=${this.longitude}&appid=${environment.apiKey}`
   );
+
+
 }

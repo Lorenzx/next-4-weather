@@ -1,4 +1,8 @@
 <p>four-days-forecast works!</p>
-<div *ngIf="weatherData$ | async as weatherData">
+<div *ngIf="weatherData$ | async as weatherData; else loading">
   <pre>{{ weatherData }}</pre>
+
 </div>
+<ng-template #loading>
+  ...loading
+</ng-template>
