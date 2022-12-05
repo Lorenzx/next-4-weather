@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i');
+body {
+   font-family: Roboto;
+    font-weight: 400;
+}
+
+h4 {
+    margin: .5rem 0;
+}
+.card {
+    background-color: #d2d2d2;
+    padding: 10px;
+    color: #000;
+    margin: 1rem 0;
+}
+
+button {
+    color: #fff;
+    background-color: rgb(0, 78, 212);
+    outline: none;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: rgba(0, 78, 212, .8);
+}
