@@ -4,8 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FourDaysForecastComponent } from './components/four-days-forecast/four-days-forecast.component';
-import { CurrentDayForecastComponent } from './components/current-day-forecast/current-day-forecast.component';
+import { FourDaysForecastComponent } from './views/four-days-forecast/four-days-forecast.component';
+import { CurrentDayForecastComponent } from './views/current-day-forecast/current-day-forecast.component';
 
 @NgModule({
   declarations: [
