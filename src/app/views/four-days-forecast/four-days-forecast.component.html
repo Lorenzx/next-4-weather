@@ -1,14 +1,20 @@
 <h2>Next Four Days Forecast</h2>
-<div *ngIf="weatherData; else loading">
+<div class="card-container" *ngIf="weatherData; else loading">
   <div *ngFor="let item of weatherData.list; let i = index" >
       <div class="card" *ngIf="i > 0">
           <div *ngFor="let info of item.weather">
-              <div>{{info.main}}</div>
-              <div>{{info.description}}</div>
+              <div>
+                <span class="card-days">{{i}} {{i === 1 ? 'Day' : 'Days' }}</span>
+                <h4>{{info.main}}</h4>
+              </div>
+              <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
+              <div class="card-description">{{info.description}}</div>
           </div>
-          <div>Average °C: {{ ((item.main.temp_min + item.main.temp_max) / 2).toFixed(2) }}</div>
-          <div>Min °C: {{ item.main.temp_min }}</div>
-          <div>Max °C: {{ item.main.temp_max }}</div>
+          <div class="card-temperature">
+              <div>Average °C: {{ item.main.temp }}</div>
+              <div>Min °C: {{ item.main.temp_min }}</div>
+              <div>Max °C: {{ item.main.temp_max }}</div>
+        </div>
     </div>
         
 

@@ -2,7 +2,7 @@
 <button (click)="getLocation()">GET MY LOCATION</button>
 
 <div class="card" *ngIf="location != {latitude: 0, longitude: 0}">
-  <h4>Current coordinates:</h4>
+  <h4>Current coordinates</h4>
 <div>Lat: {{ location.latitude }}</div>
 <div>Long: {{ location.longitude }}</div>
 </div>

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { observable, Observable } from 'rxjs';
+
 import { Coords } from 'src/app/interfaces/coords.i';
 import { CurrentLocationService } from 'src/app/services/current-location.service';
+import { environment } from 'environment';
 
 @Component({
   selector: 'app-current-day-forecast',
@@ -11,7 +12,9 @@ import { CurrentLocationService } from 'src/app/services/current-location.servic
 })
 export class CurrentDayForecastComponent implements OnInit {
   location: Coords = { latitude: 0, longitude: 0 };
-
+  weatherData: any;
+  iconBaseUrl: string = 'https://openweathermap.org/img/w/';
+  iconExtension: string = '.png';
 
   constructor(private currentLocationService: CurrentLocationService, private http: HttpClient) {}
 
@@ -24,5 +27,7 @@ export class CurrentDayForecastComponent implements OnInit {
       .getCurrentLocation()
       .subscribe((data) => (this.location = data));
   }
+
+
 
 }
