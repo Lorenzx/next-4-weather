@@ -1,15 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Coords } from '../interfaces/coords.i';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CurrentLocationService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getCurrentLocation(): Observable<Coords> {
+  getCurrentLocation(): any {
     let isLoading = true;
     return new Observable((observer) => {
       navigator.geolocation.getCurrentPosition(
@@ -23,6 +25,8 @@ export class CurrentLocationService {
         },
         (err) => console.log(err)
       )
-    });
+    })
   }
+
+
 }

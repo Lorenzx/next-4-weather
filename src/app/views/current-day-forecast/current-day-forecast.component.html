@@ -3,8 +3,12 @@
 
 <div class="card" *ngIf="location != {latitude: 0, longitude: 0}">
   <h4>Current coordinates:</h4>
-<div>{{ location.latitude }}</div>
-<div>{{ location.longitude }}</div>
+<div>Lat: {{ location.latitude }}</div>
+<div>Long: {{ location.longitude }}</div>
+</div>
+
+<div class="card">
+  <h4>Current Forecast</h4>
 </div>
 
 <div *ngIf="location === {latitude: 0, longitude: 0}">

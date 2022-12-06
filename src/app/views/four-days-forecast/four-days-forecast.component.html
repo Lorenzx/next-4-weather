@@ -1,8 +1,20 @@
-<h2>Four Days Forecast</h2>
-<div *ngIf="weatherData$ | async as weatherData; else loading">
-  <pre>{{ weatherData }}</pre>
+<h2>Next Four Days Forecast</h2>
+<div *ngIf="weatherData; else loading">
+  <div *ngFor="let item of weatherData.list; let i = index" >
+      <div class="card" *ngIf="i > 0">
+          <div *ngFor="let info of item.weather">
+              <div>{{info.main}}</div>
+              <div>{{info.description}}</div>
+          </div>
+          <div>Average °C: {{ ((item.main.temp_min + item.main.temp_max) / 2).toFixed(2) }}</div>
+          <div>Min °C: {{ item.main.temp_min }}</div>
+          <div>Max °C: {{ item.main.temp_max }}</div>
+    </div>
+        
+
+  </div>
 
 </div>
 <ng-template #loading>
-  ...loading
+  <p>...loading weather data</p>
 </ng-template>
