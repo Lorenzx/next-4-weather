@@ -1,4 +1,5 @@
 <header>
-    <h1 [routerLink]="'/'" routerLinkActive="active">{{title}}</h1>
-    <button (click)="getLocation()">GET MY LOCATION</button>
+    <h1 [routerLink]="'/'">Angular Weather</h1>
+    <app-button backgroundColor="#249564" [routerLink]="'/four-days'" text='4 Days Forecast' iconUrl="https://cdn-icons-png.flaticon.com/128/2932/2932445.png"></app-button>
+    <app-button text='Update location' [onClickFunc]="getLocation" iconUrl='https://cdn-icons-png.flaticon.com/128/3916/3916882.png'></app-button>
 </header>

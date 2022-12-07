@@ -1,0 +1,4 @@
+<button [ngStyle]="{'background': backgroundColor ? backgroundColor : 'rgb(0, 78, 212)'}" class="button" (click)="onClickFunc ? onClickFunc() : '' ">
+    <span class="button-text">{{text}}</span>
+    <img *ngIf="iconUrl" class="button-image" src={{iconUrl}}/>
+</button>
