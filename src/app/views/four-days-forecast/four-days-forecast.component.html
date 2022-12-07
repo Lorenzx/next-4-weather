@@ -4,7 +4,7 @@
       <div class="card" *ngIf="i > 0">
           <div *ngFor="let info of item.weather">
               <div>
-                <span class="card-days">{{i}} {{i === 1 ? 'Day' : 'Days' }}</span>
+                <span class="card-days"> {{i === 1 ? 'Tomorrow' : i +' Days' }}</span>
                 <h4>{{info.main}}</h4>
               </div>
               <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
@@ -22,5 +22,5 @@
 
 </div>
 <ng-template #loading>
-  <p>...loading weather data</p>
+  <div class="card-container">...loading weather data</div>
 </ng-template>

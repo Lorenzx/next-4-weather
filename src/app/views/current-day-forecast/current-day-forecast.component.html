@@ -1,16 +1,27 @@
-<h2>Curren Location Forecast</h2>
-<button (click)="getLocation()">GET MY LOCATION</button>
-
-<div class="card" *ngIf="location != {latitude: 0, longitude: 0}">
+<div class="card" *ngIf="!isLoading else loading">
   <h4>Current coordinates</h4>
-<div>Lat: {{ location.latitude }}</div>
-<div>Long: {{ location.longitude }}</div>
+  <div>Lat: {{ location.latitude }}</div>
+  <div>Long: {{ location.longitude }}</div>
+</div>
+<div class="card-container">
+<div *ngIf="weatherData" class="card">
+        <div *ngFor="let info of weatherData['weather']">
+              <div>
+                  <span class="card-days">Today's weather</span>
+                  <h4>{{info.main}}</h4>
+              </div>
+              <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
+              <div class="card-description">
+                    {{info.description}}
+              </div>
+        </div>
+        <div class="card-temperature">
+            <div>Average °C: {{ weatherData.main.temp }}</div>
+            <div>Min °C: {{ weatherData.main.temp_min }}</div>
+            <div>Max °C: {{ weatherData.main.temp_max }}</div>
+        </div>
 </div>
 
-<div class="card">
-  <h4>Current Forecast</h4>
-</div>
-
-<div *ngIf="location === {latitude: 0, longitude: 0}">
+<ng-template #loading>
   <div>Loading current position...</div>
-</div>
+</ng-template>

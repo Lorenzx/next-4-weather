@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { environment } from '../../../../environment';
 import { CurrentLocationService } from 'src/app/services/current-location.service';
@@ -28,7 +28,8 @@ ngOnInit(): void {
 
    this.http.get(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${this.latitude}&lon=${this.longitude}&cnt=5&units=metric&appid=${environment.apiKey}`
-  ).subscribe(data => this.weatherData = data);
+  ).subscribe(data => this.weatherData = data),
+  (err: HttpErrorResponse) => alert(err.message);
 
 }
 

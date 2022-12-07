@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { Coords } from 'src/app/interfaces/coords.i';
@@ -15,18 +15,23 @@ export class CurrentDayForecastComponent implements OnInit {
   weatherData: any;
   iconBaseUrl: string = 'https://openweathermap.org/img/w/';
   iconExtension: string = '.png';
+  isLoading: boolean = true;
 
   constructor(private currentLocationService: CurrentLocationService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.getLocation();
+    this.currentLocationService
+    .getCurrentLocation()
+    .subscribe((data) => (this.location = data));
+    this.http.get(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${this.location.latitude}&lon=${this.location.longitude}&cnt=5&units=metric&appid=${environment.apiKey}`
+    ).subscribe(data => {
+        this.weatherData = data; 
+        this.isLoading  = false
+      }),
+    (err: HttpErrorResponse) => alert(err.message);
   }
 
-  getLocation() {
-    this.currentLocationService
-      .getCurrentLocation()
-      .subscribe((data) => (this.location = data));
-  }
 
 
 
