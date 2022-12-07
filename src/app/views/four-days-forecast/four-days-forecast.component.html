@@ -1,26 +1,26 @@
-<h2>Next Four Days Forecast</h2>
-<div class="card-container" *ngIf="weatherData; else loading">
-  <div *ngFor="let item of weatherData.list; let i = index" >
-      <div class="card" *ngIf="i > 0">
-          <div *ngFor="let info of item.weather">
-              <div>
-                <span class="card-days"> {{i === 1 ? 'Tomorrow' : i +' Days' }}</span>
-                <h4>{{info.main}}</h4>
+<div class="view-content-container">
+    <h2>Next Four Days Forecast</h2>
+    <div class="card-container" *ngIf="weatherData; else loading">
+      <div id="{{'card-'+i}}" *ngFor="let item of weatherDataList; let i = index" >
+          <div class="card" >
+              <div *ngFor="let info of item.weather">
+                  <div>
+                    <span class="card-days"> {{i === 0 ? 'Tomorrow' : i === 1 ? i +' Day': i +' Days' }}</span>
+                    <h4>{{info.main}}</h4>
+                  </div>
+                  <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
+                  <div class="card-description">{{info.description}}</div>
               </div>
-              <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
-              <div class="card-description">{{info.description}}</div>
-          </div>
-          <div class="card-temperature">
-              <div>Average °C: {{ item.main.temp }}</div>
-              <div>Min °C: {{ item.main.temp_min }}</div>
-              <div>Max °C: {{ item.main.temp_max }}</div>
+              <div class="card-temperature">
+                  <div>Avg °C: {{ item.main.temp }}</div>
+                  <div>Min °C: {{ item.main.temp_min }}</div>
+                  <div>Max °C: {{ item.main.temp_max }}</div>
+            </div>
         </div>
+      </div>
     </div>
-        
-
-  </div>
-
+    <app-footer  [location]="location"></app-footer>
+    <ng-template #loading>
+      <div class="card-container">...loading weather data</div>
+    </ng-template>
 </div>
-<ng-template #loading>
-  <div class="card-container">...loading weather data</div>
-</ng-template>

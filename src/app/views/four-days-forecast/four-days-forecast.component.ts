@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { environment } from '../../../../environment';
 import { CurrentLocationService } from 'src/app/services/current-location.service';
+import { Weather } from 'src/app/interfaces/res.i';
+import { Coords } from 'src/app/interfaces/coords.i';
 
 @Component({
   selector: 'app-four-days-forecast',
@@ -12,7 +14,9 @@ import { CurrentLocationService } from 'src/app/services/current-location.servic
 export class FourDaysForecastComponent implements OnInit {
   latitude: number = 0;
   longitude: number = 0;
+  location: Coords = {latitude: 0, longitude: 0};
   weatherData: any;
+  weatherDataList: any;
   iconBaseUrl: string = 'https://openweathermap.org/img/w/';
   iconExtension: string = '.png';
 
@@ -22,13 +26,16 @@ export class FourDaysForecastComponent implements OnInit {
 ngOnInit(): void {
   this.currentLocationService.getCurrentLocation()
   .subscribe(data => {
-    this.latitude = data.latitude; 
-    this.longitude = data.longitude
+    this.location = data;
   })
 
    this.http.get(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${this.latitude}&lon=${this.longitude}&cnt=5&units=metric&appid=${environment.apiKey}`
-  ).subscribe(data => this.weatherData = data),
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${this.location.latitude}&lon=${this.location.longitude}&cnt=5&units=metric&appid=${environment.apiKey}`
+  ).subscribe(data => {
+      this.weatherData = data
+      this.weatherDataList = this.weatherData?.list.splice(1,4)
+      console.log(this.weatherDataList)
+    }),
   (err: HttpErrorResponse) => alert(err.message);
 
 }

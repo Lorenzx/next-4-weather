@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { FourDaysForecastComponent } from './views/four-days-forecast/four-days-forecast.component';
 import { CurrentDayForecastComponent } from './views/current-day-forecast/current-day-forecast.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ButtonComponent } from './components/button/button.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FourDaysForecastComponent,
     CurrentDayForecastComponent,
-    HeaderComponent
+    HeaderComponent,
+    ButtonComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

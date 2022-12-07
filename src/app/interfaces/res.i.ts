@@ -16,6 +16,11 @@
         main: string;
         description: string;
         icon: string;
+        weather: string;
+        temp: string;
+        temp_min: string;
+        temp_max: string;
+   
     }
 
     export interface Clouds {

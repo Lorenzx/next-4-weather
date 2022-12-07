@@ -1,27 +1,28 @@
-<div class="card" *ngIf="!isLoading else loading">
-  <h4>Current coordinates</h4>
-  <div>Lat: {{ location.latitude }}</div>
-  <div>Long: {{ location.longitude }}</div>
-</div>
-<div class="card-container">
-<div *ngIf="weatherData" class="card">
-        <div *ngFor="let info of weatherData['weather']">
-              <div>
-                  <span class="card-days">Today's weather</span>
-                  <h4>{{info.main}}</h4>
-              </div>
-              <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
-              <div class="card-description">
-                    {{info.description}}
-              </div>
-        </div>
-        <div class="card-temperature">
-            <div>Average °C: {{ weatherData.main.temp }}</div>
-            <div>Min °C: {{ weatherData.main.temp_min }}</div>
-            <div>Max °C: {{ weatherData.main.temp_max }}</div>
-        </div>
-</div>
 
-<ng-template #loading>
-  <div>Loading current position...</div>
-</ng-template>
+<div class="view-content-container">
+    <div class="card-container">
+    <div *ngIf="weatherData" class="card-today card">
+            <div *ngFor="let info of weatherData['weather']">
+                  <div>
+                      <span class="card-days">Today's weather</span>
+                      <h4>{{info.main}}</h4>
+                  </div>
+                  <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
+                  <div class="card-description">
+                        {{info.description}}
+                  </div>
+            </div>
+            <div class="card-temperature">
+                <div>Avg °C: {{ weatherData.main.temp }}</div>
+                <div>Min °C: {{ weatherData.main.temp_min }}</div>
+                <div>Max °C: {{ weatherData.main.temp_max }}</div>
+            </div>
+    </div>
+
+    <app-footer style="width:100%;" [location]="location" *ngIf="!isLoading else loading"></app-footer>
+
+
+    <ng-template #loading>
+      <div>Loading current position...</div>
+    </ng-template>
+</div>

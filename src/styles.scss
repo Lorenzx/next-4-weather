@@ -3,6 +3,8 @@
 /* SCSS variables */
 $primary-color: rgb(17, 1, 87);
 $secondary-color: rgb(0, 78, 212);
+$light-blue-bg: rgb(236 247 255);
+$dark-grey: rgb(58, 58, 58);
 
 $card-title-color: $primary-color;
 
@@ -12,17 +14,27 @@ body {
     font-family: Roboto;
     font-weight: 400;
     margin: 0;
+    background: $light-blue-bg;
 }
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
+    h1 {
+        cursor: pointer;
+    }
 }
 #app-container {
     max-width: 50rem;
+    min-height: 36rem;
     padding: 2rem;
-    margin: 1rem auto;
+    margin: 2rem auto;
     box-shadow: 0px 3px 25px #ccc;
+    background: #fff;
+}
+h2 {
+    margin: 1rem 0;
 }
 h4 {
     margin: .5rem 0;
@@ -31,27 +43,45 @@ h4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 3rem 0;
     .card {
         text-align: center;
         align-items: center;
     }
 }
+.card-today {
+    &.card{
+        width: 100%;
+    }
+    .card-days {
+        font-size: 1.5rem;
+    }
+    & h4{
+        font-size: 1.3rem;
+        margin: 1rem;
+    }
+    .card-description {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 1rem;
+    }
+}
+
 .card {
-    background-color: #ffffff;
+    background: $light-blue-bg;
     color: #000;
+    border: 1px solid #cbcbcb;
     padding: 20px;
-    margin: 1rem;
     display: flex;
     flex-direction: column;
-    border: 1px solid #dfdfdf;
-    border-radius: 8px;
-    box-shadow: 1px 3px 10px #eee;
     h4 {
         color: $card-title-color;
         font-size: 1.3rem;
     }
+
     &-description {
         color: $secondary-color;
+        font-weight: 500;
     }
     &-temperature  {
        display: flex;
@@ -65,16 +95,11 @@ h4 {
     }
 }
 
-.card:nth-child(1) {
-    margin-left: 0;
-}
-
 button {
     color: #fff;
-    background-color: rgb(0, 78, 212);
     outline: none;
     border: none;
-    padding: 1rem 2rem;
+    padding: 1rem;
     cursor: pointer;
     font-weight: 500;
 }
@@ -83,16 +108,59 @@ button:hover {
     background-color: rgba(0, 78, 212, .8);
 }
 
+footer {
+    background: #f7f7f7;
+    color: $dark-grey;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin-top: 3rem;
+}
+
+footer > div {
+    margin: 1rem;
+}
+
 @media all and (max-width: 760px) {
+    h1 {
+        font-size: 1.2rem;
+    }
     #app-container  {
         margin: 0;
         box-shadow: none;
+        background: none;
+        min-height: auto;
     }
     .card {
         margin: 1rem 0;
+        background: #ffffff;
     }
     .card-container {
+        margin: 0;
         flex-wrap: nowrap;
         flex-direction: column;
+        display: flex;
+    }
+    .card-today.card {
+        width: inherit;
+        margin-bottom: 0;
+    }
+    .button  {
+        padding: .4rem;
+    }
+    .button-image {
+        width: 20px;
+    }
+    .button-text {
+        margin-right: .5rem;
+        font-size: .7rem;
+    }
+    .button:nth-child(1) {
+        margin-left: .2rem;
+    }
+    footer {
+        margin-top: 1rem;
     }
 }
