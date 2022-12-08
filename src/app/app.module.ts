@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CardsComponent } from './components/cards/cards.component';
     ButtonComponent,
     FooterComponent,
     CardsComponent,
+    CardComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],

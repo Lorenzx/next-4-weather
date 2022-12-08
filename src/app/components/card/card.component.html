@@ -1,0 +1,25 @@
+<div class="card">
+  <div *ngFor="let info of item.weather">
+    <div>
+      <span class="card-days">
+        {{ i === 0 ? "Tomorrow" : i === 1 ? i + " Day" : i + " Days" }}</span
+      >
+      <h4>{{ info.main }}</h4>
+    </div>
+    <img
+      src="{{ iconBaseUrl }}{{ info.icon }}{{ iconExtension }}"
+      alt="weather icon"
+    />
+    <div class="card-description">{{ info.description }}</div>
+  </div>
+  <div class="card-temperature">
+    <div class="card-temperature-text">Avg °C:</div>
+    <div class="card-temperature-value">{{ item.main.temp }}</div>
+
+    <div class="card-temperature-text">Min °C:</div>
+    <div class="card-temperature-value">{{ item.main.temp_min }}</div>
+
+    <div class="card-temperature-text">Max °C:</div>
+    <div class="card-temperature-value">{{ item.main.temp_max }}</div>
+  </div>
+</div>

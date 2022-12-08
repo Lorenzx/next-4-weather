@@ -8,9 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardsComponent implements OnInit {
   @Input() public weatherDataList: any;
 
-  iconBaseUrl: string = 'https://openweathermap.org/img/w/';
-  iconExtension: string = '.png';
-
   ngOnInit() {
     console.log('weather data list in card', this.weatherDataList);
   }

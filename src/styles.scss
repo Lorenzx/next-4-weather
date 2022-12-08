@@ -1,12 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i");
 
-/* SCSS variables */
-$primary-color: rgb(17, 1, 87);
-$secondary-color: rgb(0, 78, 212);
-$light-blue-bg: rgb(236 247 255);
+/* Color variables */
+$dark-blue: rgb(0, 78, 212);
+$medium-blue: rgb(50 122 174);
+$light-blue: rgb(204 242 255);
 $dark-grey: rgb(58, 58, 58);
+$light-grey: rgb(234, 234, 234);
+$light-yellow: rgb(255, 252, 220);
 
-$card-title-color: $primary-color;
+$default-border-radius: 8px;
+
+$card-bg: rgb(236 247 255);
+$card-title-color: $dark-blue;
 
 /* end SCSS variables */
 
@@ -17,7 +22,7 @@ body {
   font-family: Roboto;
   font-weight: 400;
   margin: 0;
-  background: $light-blue-bg;
+  background: $card-bg;
 }
 header {
   display: flex;
@@ -30,7 +35,6 @@ header {
 }
 #app-container {
   max-width: 50rem;
-  min-height: 36rem;
   padding: 2rem;
   margin: 2rem auto;
   box-shadow: 0px 3px 25px #ccc;
@@ -50,9 +54,14 @@ h4 {
   &-today .card-container {
     display: block;
   }
-  .card {
-    text-align: center;
+  &-today .card-temperature {
+    flex-direction: row;
     align-items: center;
+    text-align: center;
+    &-text {
+      font-size: 0.7rem;
+      margin: 0.5rem 0.7rem;
+    }
   }
 }
 .card-today {
@@ -74,11 +83,12 @@ h4 {
 }
 
 .card {
-  background: $light-blue-bg;
-  color: #000;
-  border: 1px solid #cbcbcb;
+  background: $card-bg;
+  color: $dark-grey;
+  border-radius: $default-border-radius;
   padding: 20px;
   display: flex;
+  text-align: center;
   flex-direction: column;
   h4 {
     color: $card-title-color;
@@ -86,7 +96,7 @@ h4 {
   }
 
   &-description {
-    color: $secondary-color;
+    color: $medium-blue;
     font-weight: 500;
   }
   &-temperature {
@@ -94,7 +104,21 @@ h4 {
     justify-content: space-between;
     margin-top: 1rem;
     flex-direction: column;
-    align-items: flex-start;
+    min-width: 7rem;
+    align-items: center;
+    background: $light-blue;
+    border-radius: $default-border-radius;
+    width: fit-content;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+
+    &-text {
+      font-size: 0.7rem;
+      margin: 0.5rem;
+    }
+    &-value {
+      font-weight: 500;
+    }
   }
   &-days {
     font-weight: 500;
@@ -105,7 +129,7 @@ button {
   color: #fff;
   outline: none;
   border: none;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-weight: 500;
 }
@@ -115,14 +139,14 @@ button:hover {
 }
 
 footer {
-  background: #f7f7f7;
+  background: $light-yellow;
   color: $dark-grey;
-  padding: 1rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
-  margin-top: 3rem;
+  border-radius: $default-border-radius;
 }
 
 footer > div {
@@ -142,7 +166,16 @@ footer > div {
   .card {
     margin: 1rem 0;
     background: #ffffff;
+    &-today {
+      &.card {
+        text-align: center;
+      }
+    }
+    &-temperature {
+      flex-direction: row;
+    }
   }
+
   .card-container {
     margin: 0;
     flex-wrap: nowrap;
@@ -165,8 +198,5 @@ footer > div {
   }
   .button:nth-child(1) {
     margin-left: 0.2rem;
-  }
-  footer {
-    margin-top: 1rem;
   }
 }
