@@ -11,4 +11,8 @@ export class CardComponent {
 
   iconBaseUrl: string = 'https://openweathermap.org/img/w/';
   iconExtension: string = '.png';
+
+  clickedCard(card) {
+    console.log(card);
+  }
 }

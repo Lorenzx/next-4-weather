@@ -18,6 +18,32 @@ $card-title-color: $dark-blue;
 @mixin button-hover {
   opacity: 0.9;
 }
+
+@mixin hover-animation {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+}
+
+@mixin no-animation {
+  transform: none;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transition: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+}
 body {
   font-family: Roboto;
   font-weight: 400;
@@ -36,6 +62,7 @@ header {
 }
 #app-container {
   max-width: 50rem;
+  min-height: 30rem;
   padding: 2rem;
   margin: 2rem auto;
   box-shadow: 0px 3px 25px #ccc;
@@ -65,10 +92,11 @@ h4 {
     }
   }
 }
-.card-today {
-  &.card {
-    width: 100%;
-  }
+
+.card-container-today .card-container .card:hover {
+  @include no-animation();
+}
+.card-container-today {
   .card-days {
     font-size: 1.5rem;
   }
@@ -91,11 +119,19 @@ h4 {
   display: flex;
   text-align: center;
   flex-direction: column;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  cursor: pointer;
   h4 {
     color: $card-title-color;
     font-size: 1.3rem;
   }
-
+  &:hover {
+    @include hover-animation();
+  }
   &-description {
     color: $medium-blue;
     font-weight: 500;
@@ -189,6 +225,9 @@ footer > div {
     }
     &-temperature {
       flex-direction: row;
+    }
+    &:hover {
+      @include no-animation();
     }
   }
 
