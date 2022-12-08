@@ -22,7 +22,7 @@ export class DailyRequestInterceptorService implements HttpInterceptor {
       tap((event) => {
         if (event instanceof HttpResponse) {
           console.log(
-            'Interceptor on API request success to implement once per day weather data request, request timestamp:',
+            'Interceptor on API request success to implement once per day weather data request. Event to check on for implementation:',
             event
           );
           // if API request timestamp is minor than today's timestamp, we can make 1 request
