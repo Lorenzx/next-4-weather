@@ -1,0 +1,29 @@
+<div class="card-container">
+  <div
+    id="{{ 'card-' + i }}"
+    *ngFor="let item of weatherDataList; let i = index"
+  >
+    <div class="card">
+      <div *ngFor="let info of item.weather">
+        <div>
+          <span class="card-days">
+            {{
+              i === 0 ? "Tomorrow" : i === 1 ? i + " Day" : i + " Days"
+            }}</span
+          >
+          <h4>{{ info.main }}</h4>
+        </div>
+        <img
+          src="{{ iconBaseUrl }}{{ info.icon }}{{ iconExtension }}"
+          alt="weather icon"
+        />
+        <div class="card-description">{{ info.description }}</div>
+      </div>
+      <div class="card-temperature">
+        <div>Avg °C: {{ item.main.temp }}</div>
+        <div>Min °C: {{ item.main.temp_min }}</div>
+        <div>Max °C: {{ item.main.temp_max }}</div>
+      </div>
+    </div>
+  </div>
+</div>
