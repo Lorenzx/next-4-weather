@@ -13,26 +13,33 @@ import { environment } from 'environment';
 export class CurrentDayForecastComponent implements OnInit {
   location: Coords = { latitude: 0, longitude: 0 };
   weatherData: any;
-  iconBaseUrl: string = 'https://openweathermap.org/img/w/';
-  iconExtension: string = '.png';
-  isLoading: boolean = true;
+  weatherDataList: any;
 
-  constructor(private currentLocationService: CurrentLocationService, private http: HttpClient) {}
+  constructor(
+    private currentLocationService: CurrentLocationService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.currentLocationService
-    .getCurrentLocation()
-    .subscribe((data) => (this.location = data));
-    this.http.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${this.location.latitude}&lon=${this.location.longitude}&cnt=5&units=metric&appid=${environment.apiKey}`
-    ).subscribe(data => {
-        this.weatherData = data; 
-        this.isLoading  = false
+      .getCurrentLocation()
+      .subscribe((data) => (this.location = data));
+
+    this.http
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${this.location.latitude}&lon=${this.location.longitude}&cnt=5&units=metric&appid=${environment.apiKey}`
+      )
+      .subscribe((data) => {
+        this.weatherData = data;
+        console.log(data);
+        this.weatherDataList = [
+          {
+            main: this.weatherData.main,
+            weather: this.weatherData.weather,
+          },
+        ];
+        console.log('current day wdlst', this.weatherDataList);
       }),
-    (err: HttpErrorResponse) => alert(err.message);
+      (err: HttpErrorResponse) => alert(err.message);
   }
-
-
-
-
 }

@@ -9,6 +9,7 @@ import { CurrentDayForecastComponent } from './views/current-day-forecast/curren
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,11 @@ import { FooterComponent } from './components/footer/footer.component';
     CurrentDayForecastComponent,
     HeaderComponent,
     ButtonComponent,
-    FooterComponent
+    FooterComponent,
+    CardsComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

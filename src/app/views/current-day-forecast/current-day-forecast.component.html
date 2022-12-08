@@ -1,28 +1,15 @@
-
 <div class="view-content-container">
-    <div class="card-container">
-    <div *ngIf="weatherData" class="card-today card">
-            <div *ngFor="let info of weatherData['weather']">
-                  <div>
-                      <span class="card-days">Today's weather</span>
-                      <h4>{{info.main}}</h4>
-                  </div>
-                  <img src={{iconBaseUrl}}{{info.icon}}{{iconExtension}} alt="weather icon" />
-                  <div class="card-description">
-                        {{info.description}}
-                  </div>
-            </div>
-            <div class="card-temperature">
-                <div>Avg °C: {{ weatherData.main.temp }}</div>
-                <div>Min °C: {{ weatherData.main.temp_min }}</div>
-                <div>Max °C: {{ weatherData.main.temp_max }}</div>
-            </div>
+  <div class="card-container-today">
+    <div *ngIf="weatherData">
+      <app-cards
+        *ngIf="weatherData; else loading"
+        [weatherDataList]="weatherDataList"
+      >
+      </app-cards>
     </div>
-
-    <app-footer style="width:100%;" [location]="location" *ngIf="!isLoading else loading"></app-footer>
-
-
+    <app-footer style="width: 100%" [location]="location"></app-footer>
     <ng-template #loading>
-      <div>Loading current position...</div>
+      <div>Loading current weather...</div>
     </ng-template>
+  </div>
 </div>
