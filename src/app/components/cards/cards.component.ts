@@ -5,10 +5,6 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss'],
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent {
   @Input() public weatherDataList: any;
-
-  ngOnInit() {
-    console.log('weather data list in card', this.weatherDataList);
-  }
 }

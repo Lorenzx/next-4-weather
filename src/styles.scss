@@ -31,6 +31,7 @@ header {
   margin: 0;
   h1 {
     cursor: pointer;
+    width: 50%;
   }
 }
 #app-container {
@@ -125,13 +126,28 @@ h4 {
   }
 }
 
-button {
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+  text-transform: uppercase;
   color: #fff;
   outline: none;
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+  &-text {
+    margin-right: 1rem;
+    font-size: 0.8rem;
+  }
+  &-image {
+    width: 20px;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    -ms-filter: invert(100%);
+  }
 }
 
 button:hover {
@@ -187,16 +203,16 @@ footer > div {
     margin-bottom: 0;
   }
   .button {
-    padding: 0.4rem;
-  }
-  .button-image {
-    width: 20px;
-  }
-  .button-text {
-    margin-right: 0.5rem;
-    font-size: 0.7rem;
-  }
-  .button:nth-child(1) {
-    margin-left: 0.2rem;
+    padding: 0.5rem;
+    &-image {
+      width: 15px;
+    }
+    &-text {
+      margin-right: 0.5rem;
+      font-size: 0.7rem;
+    }
+    &:nth-child(1) {
+      margin-left: 0.2rem;
+    }
   }
 }

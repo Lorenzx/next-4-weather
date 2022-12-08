@@ -34,7 +34,6 @@ export class FourDaysForecastComponent implements OnInit {
       .subscribe((data) => {
         this.weatherData = data;
         this.weatherDataList = this.weatherData?.list.splice(1, 4);
-        console.log('weather data list post splice', this.weatherDataList);
       }),
       (err: HttpErrorResponse) => alert(err.message);
   }

@@ -31,14 +31,12 @@ export class CurrentDayForecastComponent implements OnInit {
       )
       .subscribe((data) => {
         this.weatherData = data;
-        console.log(data);
         this.weatherDataList = [
           {
             main: this.weatherData.main,
             weather: this.weatherData.weather,
           },
         ];
-        console.log('current day wdlst', this.weatherDataList);
       }),
       (err: HttpErrorResponse) => alert(err.message);
   }
