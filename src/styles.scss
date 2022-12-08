@@ -1,49 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i");
+@import "./app/scss/variables.scss";
+@import "./app/scss/mixins.scss";
 
-/* Color variables */
-$dark-blue: rgb(0, 78, 212);
-$medium-blue: rgb(50 122 174);
-$light-blue: rgb(204 242 255);
-$dark-grey: rgb(58, 58, 58);
-$light-grey: rgb(234, 234, 234);
-$light-yellow: rgb(255, 252, 220);
-
-$default-border-radius: 8px;
-
-$card-bg: rgb(236 247 255);
-$card-title-color: $dark-blue;
-
-/* end SCSS variables */
-
-@mixin button-hover {
-  opacity: 0.9;
-}
-
-@mixin hover-animation {
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-}
-
-@mixin no-animation {
-  transform: none;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transition: none;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -ms-transition: none;
-  -o-transition: none;
-}
 body {
   font-family: Roboto;
   font-weight: 400;

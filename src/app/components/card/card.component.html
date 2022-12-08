@@ -1,4 +1,11 @@
-<div class="card" (click)="clickedCard(item.weather)">
+<app-modal
+  id="card-modal-{{ i }}"
+  [details]="item"
+  style="display: none"
+  [isModalVisible]="isModalVisible"
+  (closeModalEvent)="onModalClose($event)"
+></app-modal>
+<div class="card" (click)="handleCardModal(i)">
   <div *ngFor="let info of item.weather">
     <div>
       <span class="card-days">

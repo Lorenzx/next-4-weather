@@ -11,8 +11,19 @@ export class CardComponent {
 
   iconBaseUrl: string = 'https://openweathermap.org/img/w/';
   iconExtension: string = '.png';
+  isModalVisible: Boolean = false;
 
-  clickedCard(card) {
-    console.log(card);
+  handleCardModal(id: number) {
+    // Get the modal
+    const modal: HTMLElement = document.querySelector(`#card-modal-${id}`);
+    this.isModalVisible = !this.isModalVisible;
+    if (this.isModalVisible) {
+      modal.style.display = 'block';
+    } else {
+      modal.style.display = 'none';
+    }
+  }
+  onModalClose(isVisible: boolean) {
+    this.isModalVisible = isVisible;
   }
 }

@@ -1,0 +1,57 @@
+<!-- Modal content -->
+<div *ngIf="isModalVisible" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title">Selected Day Details</div>
+      <span class="close" (click)="onCloseModal($event)">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div *ngFor="let info of details.weather">
+        <div class="details">
+          <div class="detail-text">Main weather:</div>
+          <div class="detail-value">{{ info.main }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Description:</div>
+          <div class="detail-value">{{ info.description }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Feels like:</div>
+          <div class="detail-value">{{ details.main.feels_like }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Humidity %:</div>
+          <div class="detail-value">{{ details.main.humidity }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Pressure (mBar):</div>
+          <div class="detail-value">{{ details.main.pressure }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Min. Temp (°C):</div>
+          <div class="detail-value">{{ details.main.temp_min }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Max. Temp (°C):</div>
+          <div class="detail-value">{{ details.main.temp_max }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Avg. Temp (°C):</div>
+          <div class="detail-value">{{ details.main.temp }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Wind speed (km/h):</div>
+          <div class="detail-value">{{ details.wind.speed }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Wind direction (deg):</div>
+          <div class="detail-value">{{ details.wind.deg }}</div>
+        </div>
+        <div class="details">
+          <div class="detail-text">Wind gust (m/s):</div>
+          <div class="detail-value">{{ details.wind.gust }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

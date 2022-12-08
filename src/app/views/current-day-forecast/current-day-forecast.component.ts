@@ -35,6 +35,7 @@ export class CurrentDayForecastComponent implements OnInit {
           {
             main: this.weatherData.main,
             weather: this.weatherData.weather,
+            wind: this.weatherData.wind,
           },
         ];
       }),

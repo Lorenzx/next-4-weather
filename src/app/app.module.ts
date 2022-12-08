@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { CardComponent } from './components/card/card.component';
 import { DailyRequestInterceptorService } from './services/daily-request-interceptor.service';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DailyRequestInterceptorService } from './services/daily-request-interce
     FooterComponent,
     CardsComponent,
     CardComponent,
+    ModalComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [
